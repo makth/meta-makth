@@ -1,0 +1,30 @@
+diff --git a/arch/arm/mach-pxa/spitz_pm.c b/arch/arm/mach-pxa/spitz_pm.c
+index 25a1f8c5a738..f60d2a1afe77 100644
+--- a/arch/arm/mach-pxa/spitz_pm.c
++++ b/arch/arm/mach-pxa/spitz_pm.c
+@@ -56,7 +56,7 @@ static void spitz_measure_temp(int on)
+ 
+ static void spitz_charge(int on)
+ {
+-	if (on) {
++	if (0) {
+ 		if (sharpsl_pm.flags & SHARPSL_SUSPENDED) {
+ 			gpio_set_value(SPITZ_GPIO_JK_B, 1);
+ 			gpio_set_value(SPITZ_GPIO_CHRG_ON, 0);
+@@ -72,14 +72,14 @@ static void spitz_charge(int on)
+ 
+ static void spitz_discharge(int on)
+ {
+-	gpio_set_value(SPITZ_GPIO_JK_A, on);
++	gpio_set_value(SPITZ_GPIO_JK_A, 0);
+ }
+ 
+ /* HACK - For unknown reasons, accurate voltage readings are only made with a load
+    on the power bus which the green led on spitz provides */
+ static void spitz_discharge1(int on)
+ {
+-	gpio_set_value(SPITZ_GPIO_LED_GREEN, on);
++	gpio_set_value(SPITZ_GPIO_LED_GREEN, 0);
+ }
+ 
+ static unsigned long gpio18_config = GPIO18_GPIO;
